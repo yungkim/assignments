@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojo Survey Index</title>
+	<!-- linking a css style sheet -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_style_sheet.css') }}">
+	<!-- linking a javascript file -->
+	<script type="text/javascript" src='{{ url_for('static', filename='js/my_script.js') }}'></script>
+	
+</head>
+<body>
+
+	<div id="container">
+		<h1>Counter</h1>
+		<p>{{ counter }} times.</p>
+		<a href="{{ url_for('clearsession') }}">Reset the Counter!</a></strong><br> 
+		<a href="{{ url_for('index') }}">Reload Page</a> - 
+		<a href="{{ url_for('plus2') }}">Reload Page x 2!</a>
+	</div>
+</body>
+</html>
