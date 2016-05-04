@@ -9,16 +9,19 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-
+			$('input').click(function(){
+				$('#activities').html('{{sResult}}');
+			});
+			
 		});
 	</script>
 </head>
 <body>
 	<div id="container">
+		<a href="{{ url_for('clearsession') }}">{{ clearsession }}</a>
 		<div id="top"></div>
-			Your Gold: {{session['total']}}<!-- <input type="text" name="score"> -->
+			Your Gold: {{session['total']}}
 		<div id="center">
-		<!-- <form action='/process_money' method='post'> -->
 			<div class="box">
 				<h4>Farm</h4>
 				<p>(earns 10-20 golds)</p>
@@ -46,10 +49,11 @@
 		</div>
 		<div id="bottom">Activities:
 			<div id="activities">
-			<textarea rows="4" cols="100">{{result}}</textarea><br>
+			<textarea rows="4" cols="100" id="result_box">{{sResult}}</textarea><br>
 			<a href="{{ url_for('clearsession') }}">Restart!</a></strong><br> 
 			</div>
 		</div>
+		<p id="test"></p>
 	</div>
 </body>
 </html>
