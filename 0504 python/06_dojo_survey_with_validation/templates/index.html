@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojo Survey Index</title>
+	<!-- linking a css style sheet -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_style_sheet.css') }}">
+	<!-- linking a javascript file -->
+	<script type="text/javascript" src='{{ url_for('static', filename='js/my_script.js') }}'></script>
+	
+</head>
+<body>
+	<div id="container">
+		<form action='/process' method='post'>
+			Your Name: <input type='text' name='name'><br>
+			Dojo Location: 
+			<select name="location">
+				<option value="Seattle">Seattle</option>
+				<option value="Sillicon Valley">Sillicon Valley</option>
+				<option value="Los Angeles">Los Angeles</option>
+				<option value="Chicago">Chicago</option>
+				<option value="Washington DC">Washington DC</option>
+				<option value="Dallas">Dallas</option>
+			</select><br>
+			Favorite Language:
+			<select name="language">
+				<option value="Javascript">Javascript</option>
+				<option value="Python">Python</option>
+				<option value="Ruby">Ruby</option>
+				<option value="PHP">PHP</option>
+			</select><br>
+			Comment (optional): <br>
+			<textarea name="comment" placeholder="Enter your comment here..."></textarea><br>
+		<input type='submit' value='Submit'>
+		</form>
+		<p>The Name and Comment fields should be validated so that they are not blank. Also, validate that the comment field is no longer than 120 characters.</p>
+		<p>Added validations to check that the name and comment fields are not blank (display appropriate validation errors)</p>
+		<p>Added validations to check that the comment is no more than 120 characters (display appropriate validation errors)</p>
+	</div>
+</body>
+</html>

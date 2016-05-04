@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojo Survey Index</title>
+	<!-- linking a css style sheet -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_style_sheet.css') }}">
+	<!-- linking a javascript file -->
+	<script type="text/javascript" src='{{ url_for('static', filename='js/my_script.js') }}'></script>
+	
+</head>
+<body>
+	<div id="container">
+		<h2>Submitted Info</h2>
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td>{{ name }}</td>
+			</tr>
+			<tr>
+				<td>Dojo Location:</td>
+				<td>{{ location }}</td>
+			</tr>
+			<tr>
+				<td>Favorite Language:</td>
+				<td>{{ language }}</td>
+			</tr>
+			<tr>
+				<td>Comment:</td>
+				<td><p>{{ comment }}</p></td>
+			</tr>
+		</table>
+		<button onclick="goBack()">Go Back</button>
+		<script>
+			function goBack() {
+			    window.history.back();
+			}
+		</script>
+		{% with messages = get_flashed_messages() %}
+		    {% if messages %}
+		    	{% for message in messages %}
+		    		<p>{{message}}</p>
+		     	{% endfor %}
+		    {% endif %}
+		{% endwith %}
+	</div>
+</body>
+</html>
