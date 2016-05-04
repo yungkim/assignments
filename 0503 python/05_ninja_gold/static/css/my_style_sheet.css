@@ -1,0 +1,39 @@
+*{
+
+}
+body{
+	font-family: tahoma;
+	font-size: 1em;
+	background: #ddd
+}
+#container{	
+	padding: 1em;
+	margin: 1em auto;
+	max-width: 50em;
+	max-height: 40em;
+	border: 1px solid black;
+	text-align: center;
+}
+#top{
+	/*text-align: left;*/
+}
+#center{
+	height: 5em;
+	display: block;
+	height: 200px;
+
+}
+.box{
+	width: 12em;
+	height: 150px;
+	background: green;
+	display: inline-block;
+	overflow: hidden;
+}
+#bottom{
+margin-top: 1em;
+}
+	.activities{
+		width: 200;
+		height: 100px;
+	}
