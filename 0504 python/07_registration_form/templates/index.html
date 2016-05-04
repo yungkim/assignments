@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<!-- linking a css style sheet -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<!-- linking a javascript file -->
+	<script type="text/javascript" src='{{ url_for('static', filename='js/my_script.js') }}'></script>
+	
+</head>
+<body>
+	<div id="container">
+		<h1>Registration Form</h1>
+		<form action='/process' method='post'>
+			Email: <input type='text' name='email' placeholder="ex: email@email.com"><br>
+			First Name: <input type='text' name='first_name' placeholder="First Name"><br>
+			Last Name: <input type='text' name='last_name' placeholder="Last Name"><br>
+			Birth Year (YYYY): <input type='text' name='birth_year' placeholder="YYYY"><br>
+			Birth Month (MM): <input type='text' name='birth_month' placeholder="MM"><br>
+			Birth Day (DD): <input type='text' name='birth_day' placeholder="DD"><br>
+			Password: <input type='password' name='password' placeholder="********"><br>
+			Confirm Password: <input type='password' name='password2' placeholder="********"><br><br>
+		<input type='submit' value='Submit'>
+		</form>
+		<p>Note: Password to have at least 1 uppercase letter and 1 numeric value. Password should be more than 8 characters.</p>
+	</div>
+</body>
+</html>
