@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email Validation Result</title>
+	<!-- linking a css style sheet -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<!-- linking a javascript file -->
+	<!-- <script type="text/javascript" src='{{ url_for('static', filename='js/my_script.js') }}'></script> -->
+</head>
+<body>
+	<div id="container">
+		{% if session['email'] %}
+		<div style="background: green; border: 2px solid black; padding: 1em">
+			<h4>Email Address Entered:</h4>
+			<h5>The email address you entered <em style="color: blue">{{session['email']}}</em> is a VALID email address! Thank you!</h5>
+		</div>
+		{% endif %}
+		<table>
+			<thead>
+				List of Emails:
+			</thead>
+			<tr>
+				<td></td>
+				<td>
+					<ol>
+						{% for row in email_list %}
+						<li>{{row['email']}}<span>{{row['created_at']}}</span><a href="/remove/{{row['id']}}"><button>remove</button></a></li>
+						{% endfor %}
+					</ol>
+				</td>
+			</tr>
+		</table>
+		<button onclick="goBack()">Go Back</button>
+		<script>
+			function goBack() {
+			    //window.history.back(); // moves back to previous page on user's history
+			    window.location.replace("{{ url_for('index') }}");
+			}
+		</script>
+		
+	</div>
+</body>
+</html>

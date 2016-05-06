@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email Validation</title>
+	<!-- linking a css style sheet -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<!-- linking a javascript file -->
+	<!-- <script type="text/javascript" src='{{ url_for('static', filename='js/my_script.js') }}'></script> -->
+	
+</head>
+<body>
+	<div id="container">
+		{% with messages = get_flashed_messages() %}
+		    {% if messages %}
+		    	{% for message in messages %}
+		    		<p class='flash'>{{message}}</p>
+		     	{% endfor %}
+		    {% endif %}
+		{% endwith %}
+		<form action='/result' method='post'>
+			Email: <input type='text' name='email' placeholder="ex: email@email.com"><br>
+			<input type='submit' value='Submit'>
+		</form>
+		<br><a href="/remove/z">View Email List</a>
+		<p><br>1. If the email address is not valid, have a notification "Email is not valid!" to display on the homepage. <br>2. Once a valid email address is entered, save to the database the email address the user entered.<br>3. On the success page, display all the email addresses entered along with the date and the time (e.g. June 24th, 2013, 6:00 PM) when the email addresses were entered<br>4. (Bonus) add a new feature that allows the user to delete an email record on the success page.</p>
+	</div>
+</body>
+</html>
