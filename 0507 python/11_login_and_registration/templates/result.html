@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email Validation Result</title>
+	<!-- linking a css style sheet -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<!-- linking a javascript file -->
+	<!-- <script type="text/javascript" src='{{ url_for('static', filename='js/my_script.js') }}'></script> -->
+</head>
+<body>
+	<div id="container">
+		{% if session['logged_in'] %}
+		<div style="background: green; border: 2px solid black; padding: 1em">
+			<h4>Hello, {{ session['logged_user_info']['first_name'] }} {{session['logged_user_info']['last_name'] }}!</h4>
+			<h5>You are logged in!</h5>
+			<a href="/logout">Sign out</a><br>
+		</div>
+		
+		<div id="main">
+			<h5>In the news</h5>
+			<i><a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=8&cad=rja&uact=8&ved=0ahUKEwjpyo_lwMbMAhWGnpQKHU1jAnEQqQIINDAH&url=https%3A%2F%2Fwww.yahoo.com%2Fnews%2Fobama-scolds-media-about-reality-show-trump-172945560.html&usg=AFQjCNHJ_EX96vkWv9cRqZukq8I9Ug_nlg&sig2=wjb5ExfUXNbE5C3igLl5dQ">Obama scolds media about 'reality show' Trump coverage</a></i><br>
+			<p>Obama scolds media about 'reality show' Trump coverage ... not a reality show,” Obama admonished ...</p>
+		</div>
+		{% endif %}
+		<table>
+			<tr>
+				<td></td>
+				<td>
+					<ol>{% for row in user_list %}
+						<li>{{row['first_name']}} {{row['last_name']}}<span>{{row['created_at']}}</span><a href="/remove/{{row['id']}}"><button>Delete</button></a></li>
+						{% endfor %}
+					</ol>
+				</td>
+			</tr>
+		</table>
+		
+		
+	</div>
+</body>
+</html>
