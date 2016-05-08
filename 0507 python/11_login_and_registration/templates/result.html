@@ -4,8 +4,6 @@
 	<title>Email Validation Result</title>
 	<!-- linking a css style sheet -->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-	<!-- linking a javascript file -->
-	<!-- <script type="text/javascript" src='{{ url_for('static', filename='js/my_script.js') }}'></script> -->
 </head>
 <body>
 	<div id="container">
@@ -26,7 +24,7 @@
 			<tr>
 				<td></td>
 				<td>
-					<ol>{% for row in user_list %}
+					<ol>{% for row in user_list_for_admin %}
 						<li>{{row['first_name']}} {{row['last_name']}}<span>{{row['created_at']}}</span><a href="/remove/{{row['id']}}"><button>Delete</button></a></li>
 						{% endfor %}
 					</ol>

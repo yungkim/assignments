@@ -14,10 +14,8 @@ print mysql.query_db("SELECT * FROM users") # an example of running a query
 @app.route('/', methods=['GET'])
 def index():
 	error=1 # assume there could be register error by default
-	#if 'logged_in' in session:
-	#	del session['logged_in']
 	return render_template('index.html', error=error)
-
+	
 @app.route('/register', methods=['POST'])
 def register():
 	print "Got Post Info"
@@ -56,7 +54,7 @@ def register():
 		user_list = mysql.query_db(user_list_query)
 		# end mySQL select
 		session['logged_in'] = "Logged in";
-		session['logged_user_info'] = {'id': user[0]['id'], 'first_name': user[0]['first_name'], 'last_name': user[0]['last_name']}
+		session['logged_user_info'] = {'id': user_list[0]['id'], 'first_name': user_list[0]['first_name'], 'last_name': user_list[0]['last_name']}
 		return render_template('/result.html', error=error, data=data, user_list=user_list)
 	return render_template('/index.html')
 
@@ -76,7 +74,6 @@ def login():
 			# end mySQL select
 			session['logged_in'] = "Logged in";
 			session['logged_user_info'] = {'id': user[0]['id'], 'first_name': user[0]['first_name'], 'last_name': user[0]['last_name']}
-			flash(session['logged_in'])
 			return render_template('/result.html')
 	except ValueError: # if database contains invalid values (ex. password is not hashed)
 		flash("Database corrupted. Please contact admin and register your account again.")
@@ -93,9 +90,9 @@ def delete_user(id):
 	mysql.query_db(delete_user_query, data)
 	# start mySQL select
 	user_list_query = "SELECT * FROM users"
-	user_list = mysql.query_db(user_list_query)
+	user_list_for_admin = mysql.query_db(user_list_query)
 	# end mySQL select
-	return render_template('/result.html', user_list=user_list)
+	return render_template('/result.html', user_list_for_admin=user_list_for_admin)
 
 @app.route('/logout')
 def logout():
