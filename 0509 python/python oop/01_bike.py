@@ -32,3 +32,18 @@ track.reverse()
 track.reverse()
 track.reverse()
 track.displayInfo()
+
+# Riding
+# Riding
+# Riding
+# Reversing
+# Price: $ 3000  Max Speed: 60mph  Miles: 25
+# Riding
+# Riding
+# Reversing
+# Reversing
+# Price: $ 2000  Max Speed: 55mph  Miles: 10
+# Reversing
+# Reversing
+# Reversing
+# Price: $ 1000  Max Speed: 50mph  Miles: 0
