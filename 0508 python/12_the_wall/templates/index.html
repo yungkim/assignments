@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login and Registration</title>
+	<!-- linking a css style sheet -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<div id="container">
+		<img src="static/img/login.png">
+		{% with messages = get_flashed_messages() %}
+		    {% if messages %}
+		    	{% for message in messages %}
+		    		<p class='flash'>{{message}}</p>
+		    		<button onclick="goBack()">Go Back</button>
+					<script>
+						function goBack() {
+						    window.history.back();
+						}
+					</script>
+		     	{% endfor %}
+		    {% endif %}
+		{% endwith %}
+
+		{% if session['logged_in'] %}
+			<h4>Hey, {{ session['logged_user_info']['first_name'] }} {{session['logged_user_info']['last_name'] }}!</h4>
+			<h5>You are still logged in!</h5>
+			<a href="/wall_update">Back to The Wall</a><br>
+			<a href="/logout">Sign out</a><br>
+		{% endif %}
+
+		{% if error == 1 and not session['logged_in'] %}
+		<div id="login">
+			<p>Login</p>
+			<form action='/login' method='post'>
+				Email: <input type='text' name='email' placeholder="ex: email@email.com"><br>
+				Password: <input type='password' name='password' placeholder="********"><br>
+				<input type='submit' value='Submit'>
+			</form>
+		</div>
+		
+		<div id="register">
+			<p>Register</p>
+			<form action='/register' method='post'>
+			First Name: <input type='text' name='first_name' placeholder="John"><br>
+			Last Name: <input type='text' name='last_name' placeholder="Doe"><br>
+				Email: <input type='text' name='email' placeholder="ex: email@email.com"><br>
+				Password: <input type='password' name='password' placeholder="********"><br>
+				Confirm Password: <input type='password' name='confirm_password' placeholder="********"><br>
+				<input type='submit' value='Submit'>
+			</form>
+		</div>
+		
+		<p><br>First Name - letters only, at least 2 characters and that it was submitted
+		<br>Last Name - letters only, at least 2 characters and that it was submitted
+		<br>Email - Valid Email format, and that it was submitted
+		<br>Password - at least 8 characters, and that it was submitted. Password requires to have at least 1 uppercase letter and 1 numeric value.
+		<br>Password Confirmation - matches passwords were entered<br>
+		<br><a href="/remove/z">For Admin Use Only!!! - View User List</a><br>
+		{% endif %}
+		
+		
+
+
+		
+		
+	</div>
+</body>
+</html>

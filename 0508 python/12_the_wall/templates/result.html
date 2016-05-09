@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>The Wall</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<div id="container">
+		{% if session['logged_in'] %}
+		<div style="background: green; border: 2px solid black; padding: 1em">
+			<h4>Hello, {{ session['logged_user_info']['first_name'] }} {{session['logged_user_info']['last_name'] }}!</h4>
+			<h5>You are logged in!</h5>
+			<a href="/logout">Sign out</a><br>
+		</div>
+		<div id="main">
+			<div id="messages">
+				<form action='/message' method='post'>
+					Post a message <textarea name='message' placeholder="wall message"></textarea>
+					<input type='submit' value='Post a message'>
+				</form>
+			</div>
+		</div>
+		<div id="messages_posted">
+			<h3>The Wall</h3>
+			{% for posting in postings %}
+				<p class="poster">{{ posting['first_name'] }} - {{ posting['created_at'] }} - {{ posting['id'] }}</p>
+				<p class="posted">{{ posting['message'] }} 
+				{% if posting['first_name'] == session['logged_user_info']['first_name'] %}	
+					<!-- incomplete !!! (Message delete disabled after 30 minutes)	 -->
+					<a href='/delete/{{posting['id']}}'><button>Delete</button></a>				
+				{% endif %}
+				</p>
+				<div id="commented">
+					<form action='/comment' method='post'>
+						<input type="hidden" name='message_id' value='{{ posting['id'] }}'>
+							{% for comment in comments_ready_to_display %}
+								{% if posting['id'] == comment['message_id'] %}
+								<p class="commented">{{ comment['first_name'] }} - {{ comment['comment'] }} - {{ comment['created_at'] }}</p>
+								{% endif %}
+							{% endfor %}
+						<p>Leave a comment <textarea name='comment' placeholder="wall message"></textarea>
+						<input type='submit' value='Comment'></p>
+					</form>
+				</div>
+			{% endfor %}
+		</div>
+		{% endif %}
+	</div>
+</body>
+</html>
