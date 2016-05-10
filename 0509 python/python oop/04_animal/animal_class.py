@@ -1,0 +1,49 @@
+from animal import Animal
+class Dog(Animal):
+	def __init__(self, name=None):
+		super(Dog, self).__init__()
+		self.name = name
+		self.health = 150
+	def pet(self):
+		self.health += 5
+		return self
+class Dragon(Animal):
+	def __init__(self, name=None):
+		super(Dragon, self).__init__()
+		self.name = name
+		self.health = 170
+	def displayHealth(self):
+		print "This is a dragon!"
+		super(Dragon, self).displayHealth()
+		return self
+	def fly(self):
+		self.health -= 10
+		return self
+
+jindo_dog = Dog('Dog')
+jindo_dog.walk().walk().walk().run().run().pet().displayHealth()
+
+Dragon('Dragon').walk().walk().walk().run().run().fly().fly().displayHealth()
+
+# New Animal!!!
+# animal walking...
+# animal walking...
+# animal walking...
+# animal running...
+# animal running...
+# animal health is 87
+# New Animal!!!
+# Dog walking...
+# Dog walking...
+# Dog walking...
+# Dog running...
+# Dog running...
+# Dog health is 142
+# New Animal!!!
+# Dragon walking...
+# Dragon walking...
+# Dragon walking...
+# Dragon running...
+# Dragon running...
+# This is a dragon!
+# Dragon health is 137
