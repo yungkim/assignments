@@ -1,0 +1,22 @@
+* {
+  font-family: monaco;
+}
+#counter, #container {
+	width: 300px;
+	height: 230px;
+	margin: 5%;
+	padding: 1em;
+	border: 1px solid black;
+}
+	#counter {
+		height: auto;
+		background: lightgreen;
+	}
+input, select, textarea {
+	margin-bottom: 1.5em;
+	float:right;
+    clear:both;
+}
+h3 {
+	text-decoration: underline;
+}

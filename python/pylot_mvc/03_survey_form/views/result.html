@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Survey Form</title>
+  </head>
+  <body>
+    <div id="counter">
+      <p>Thanks for submitting this form! You have submitted this form {{ session['counter']}}  times now.
+        <form action="/clear" method="GET">
+          <input type="submit" value="Reset">
+        </form>
+      </p>
+    </div>
+    <div id="container">
+      <h3>Submitted Information</h3>
+      <p>Name: {{session['name']}}</p>
+      <p>Dojo Location: {{session['location']}}</p>
+      <p>Favorite Langues: {{session['language']}}</p>
+      <p>Comment: {{session['comment']}}</p>
+      <form action="/" method="GET">
+        <input type="submit" value="Go Back">
+      </form>
+    </div>
+  </body>
+</html>

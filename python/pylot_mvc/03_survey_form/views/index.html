@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Survey Form</title>
+  </head>
+  <body>
+    <div id="container">
+    	<form action="surveys/process" method="POST">
+    		<p>Your Name:<input type="text" name="name" placeholder="Enter your name"></p>
+    		<p>Dojo Location:
+	    		<select name="location">
+	    			<option value="Seattle">Seattle</option>
+	    			<option value="San Francisco">San Francisco</option>
+	    			<option value="Chicago">Chicago</option>
+	    			<option value="Los Angeles">Los Angeles</option>
+	    			<option value="New York">New York</option>
+	    		</select>
+	    	</p>
+    		<p>Favorite Language:
+    			<select name="language">
+	    			<option value="Python">Python</option>
+	    			<option value="Ruby">Ruby</option>
+	    			<option value="Javascript">Javascript</option>
+	    		</select>
+	    	</p>
+    		<p>Comment (optional):
+    			<textarea name="comment"></textarea>
+    		</p>
+    		<input type="submit">
+    	</form>
+    </div>
+  </body>
+</html>
