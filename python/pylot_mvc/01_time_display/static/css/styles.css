@@ -1,0 +1,17 @@
+* {
+  font-family: monaco;
+}
+#container {
+	text-align: center;
+	padding: 3em;
+}
+#title_box, #time_box {
+	border: 1px solid #000000;
+	width: 40%;
+}
+#title_box {
+	font-size: 2em;
+}
+#time_box {
+	font-size: 5em;
+}
