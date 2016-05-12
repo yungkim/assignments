@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+  <h2>Random Word (attempt #{{session['attempt']}})</h2>
+  <form action='/result' method="POST" >
+  	<div class='wordbox'>
+  		<p>{{random_word}}</p>
+  	</div>
+  	<input type='SUBMIT'>
+  </form>
+  </body>
+</html>

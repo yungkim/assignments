@@ -1,0 +1,11 @@
+* {
+  font-family: monaco;
+  font-size: 1.2em;
+}
+
+div.wordbox{
+	height: 100px;
+	width: 50%;
+	margin: 10px auto;
+	font-size: 2rem;
+}
