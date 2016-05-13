@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Delete a course</title>
+  </head>
+  <body>
+    <div id="container">
+    	<h1>Are you sure you want to delete the following course?</h1>
+      {% for course in course_to_delete %}
+      <p>Name: {{ course.title }}</p>
+      <p>Description: {{ course.description }}</p>      
+      <p id="btn_no" class="buttons"><a href="../../../">No</a></p>
+      <p id="btn_yes" class="buttons"><a href="../{{ course.id }}">Yes! I want to delete this</a></p>
+      {% endfor %}
+    	</div>
+    </div>
+  </body>
+</html>

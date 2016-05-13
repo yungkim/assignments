@@ -1,0 +1,52 @@
+<html>
+<head>
+  <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  <title>Add a student to all bootcamp courses</title>
+</head>
+<body>
+  <div id="container">
+    <div id="add_section">
+      <h3>Add a new course</h3>
+      <form action="courses/add" method="post">
+        <table>
+          <tr>
+            <td> Name: </td>
+            <td><input type="text" name="title"></input></td>
+          </tr>
+          <tr>
+            <td>Description:</td>
+            <td><textarea name="description"></textarea></td>
+          </tr>
+          <td></td>
+          <td>
+            <input type="submit" value="Add"></input>
+          </td>
+        </table>
+      </form>
+    </div>
+    <div id="list_section">
+      <h3>Courses</h3>
+      <table id="table_courses">
+        <thead>
+          <tr>
+            <th>Course Name</th>
+            <th>Description</th>
+            <th>Date Added</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for each_course in all_course %}
+          <tr>
+            <td>{{ each_course.title }}</td>
+            <td>{{ each_course.description }}</td>
+            <td>{{ each_course.created_at }}</td>
+            <td><a href="courses/delete/confirm/{{ each_course.id }}">remove</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
