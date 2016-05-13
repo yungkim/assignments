@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <div id="container">
+    	<div id="top_gold">
+    		<p>Your Gold: <div id="gold_earned">{{ session['gold'] }}</div></p>
+    	</div>
+		<div id="center_boxes">
+			<div class="box">
+				<h3>Farm</h3>
+				<p>(earns 10-20 golds)</p>
+				<img src="/static/img/farm.jpg">
+				<form action="/process/money" method="post">
+					<input type="hidden" name="building" value="farm">
+					<input type="submit" value="Find Gold!">
+				</form>
+			</div>
+			<div class="box">
+				<h3>Cave</h3>
+				<p>(earns 5-10 golds)</p>
+				<img src="/static/img/cave.jpg">
+				<form action="/process/money" method="post">
+					<input type="hidden" name="building" value="cave">
+					<input type="submit" value="Find Gold!">
+				</form>
+			</div>
+			<div class="box">
+				<h3>House</h3>
+				<p>(earns 2-5 golds)</p>
+				<img src="/static/img/house.jpg">
+				<form action="/process/money" method="post">
+					<input type="hidden" name="building" value="house">
+					<input type="submit" value="Find Gold!">
+				</form>
+			</div>
+			<div class="box"><h3>Casino</h3>
+				<p>(earns/takes 0-50 golds)</p>
+				<img src="/static/img/casino.jpg">
+				<form action="/process/money" method="post">
+					<input type="hidden" name="building" value="casino">
+					<input type="submit" value="Find Gold!">
+				</form>
+			</div>
+		</div>
+		<div id="bottom_activities">
+			<p>Activities:</p>
+			<div id="activities_box">
+				{% for activity in session['activities'] %}
+					<p class='{{ activity['color'] }}'>{{ activity['activity'] }}</p>
+				{% endfor %}
+			</div>
+		</div>
+		<form action="/process/clear" method="post">
+			<input type="submit" value="Reset">
+		</form>
+    </div>
+  </body>
+</html>
