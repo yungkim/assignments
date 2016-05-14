@@ -1,0 +1,70 @@
+* {
+  font-family: monaco;
+}
+#container {
+	margin: 2em;
+}
+table {
+	border-collapse: collapse;
+}
+	th, td {
+		padding: 0.2em 1.5em;
+		text-align: left;
+		vertical-align: top;
+	}
+	th {
+		background: #bcd;
+	}
+	#table_courses {
+		border: 4px solid black;
+	} 
+	#table_courses td, th {
+		border-right: 4px solid black;
+	}
+input[type=text], textarea {
+	width: 20em;
+	height: 2em;
+}
+textarea {
+	height: 5em;
+}
+input[type=submit] {
+	background: blue;
+	color: white;
+	border: 3px solid black;
+	padding: 0.3em 1em;
+	font-size: 1em;
+	box-shadow: 10px 10px 5px #888888;
+	float: right;
+	margin-top: 1em;
+}
+.buttons {
+	display: inline-block;
+	border: 1px solid black;
+	padding: 0.4em;
+	font-size: 2em;
+	box-shadow: 10px 10px 5px #888888;
+	margin-left: 1em;
+}
+	.buttons a {
+		text-decoration: none;
+		color: white;
+	}
+	#btn_no {
+		background: #abc;
+	}
+		#btn_no a {
+			color: black;
+		}
+	#btn_yes {
+		background: red;
+	}
+.flash {
+	margin-top: 2em;
+	color: red;
+}
+#validations_info {
+	margin-top: 3em;
+	font-size: 0.5em;
+	line-height: 30%;
+}

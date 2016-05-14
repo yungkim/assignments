@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Login & Reg | Success</title>
+  </head>
+  <body>
+    <div id="container">
+    	{% if session['first_name'] %}
+    	<h1>Success! Welcome, {{ session['first_name']}}!</h1>
+    	<h2>Successfully 
+    	{% if session['id'] %} logged in!{% endif%}
+    	{% if not session['id'] %} registered!{% endif%}</h2>
+    	<h4>Click <a href="logout">here</a> to log out.</h4>
+    	{% endif %}
+    	{% if not session['first_name'] %}
+    	<h1>Please <a href="/">log in</a>.</h1>
+    	{% endif %}
+    </div>
+  </body>
+</html>

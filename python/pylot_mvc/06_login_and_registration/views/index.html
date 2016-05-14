@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <title>Login & Reg | Home</title>
+  </head>
+  <body>
+  <div id="container">
+  {% if session['first_name'] %}
+  	<h1>{{ session['first_name'] }}, you are still logged in.</h1> 
+  	<h1>Click <a href="logout">here</a> to log out.</h1>
+  {% endif %}
+  	 {% if not session['first_name'] %}
+  	<h1>Registration</h1>
+  	<form action="register" method="post">
+  		<table>
+  			<tr>
+  				<td>First Name:</td>
+  				<td><input type="text" name="fname" value="{{ session['form']['fname'] }}"></td>
+  			</tr>
+  			<tr>
+  				<td>Last Name:</td>
+  				<td><input type="text" name="lname" value="{{ session['form']['lname'] }}"></td>
+  			</tr>
+  			<tr>
+  				<td>Email:</td>
+  				<td><input type="text" name="email" value="{{ session['form']['email'] }}"></td>
+  			</tr>
+  			<tr>
+  				<td>Password:</td>
+  				<td><input type="password" name="password"></td>
+  			</tr>
+  			<tr>
+  				<td>Confirm pw:</td>
+  				<td><input type="password" name="cpassword"></td>
+  			</tr>
+  			<tr>
+  				<td></td>
+  				<td><input type="submit" value="Register"></td>
+  			</tr>
+  		</table>
+  	</form>
+  	<h1>Login</h1>
+  		<form action="login" method="post">
+  	  		<table>
+	  			<tr>
+	  				<td>Email:</td>
+	  				<td><input type="text" name="email" value="{{ session['form2']['email'] }}"></td>
+	  			</tr>
+	  			<tr>
+	  				<td>Password:</td>
+	  				<td><input type="password" name="password"></td>
+	  			</tr>
+	  			<tr>
+	  				<td></td>
+	  				<td><input type="submit" value="Login"></td>
+	  			</tr>
+  			</table>
+  		</form>
+  		{% with messages = get_flashed_messages() %}
+		    {% if messages %}
+		    	{% for message in messages %}
+		    		<p class='flash'>{{message}}</p>
+		     	{% endfor %}
+		    {% endif %}
+		{% endwith %}
+		<div id="validations_info">
+			<p><strong><em>Validations</em></strong> - show validation error messages if validations fail above the corresponding form</p>
+			<p>First Name - Required, No less than 2 characters, letters only</p>
+			<p>Last Name - Required, No less than 2 characters, letters only</p>
+			<p>Email - Required, Valid Format</p>
+			<p>Password - Required, No less than 8 characters in length, matches Password Confirmation</p>
+			<p>Use Bcrypt to encrypt your users' passwords</p>
+		</div>
+	 {% endif %}
+  </div>
+  </body>
+</html>
