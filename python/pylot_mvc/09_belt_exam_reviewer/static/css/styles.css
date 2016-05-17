@@ -1,0 +1,32 @@
+* {
+	/*outline: 1px solid red;*/
+}
+table {
+	border-collapse: collapse;
+}
+	th, td {
+		padding: 0.2em 1.5em;
+		text-align: left;
+		vertical-align: top;
+	}
+input[type=submit] {
+	background: #6b75b2;
+	color: white;
+	border: 3px solid #4a5fa5;
+	padding: 0.3em 1em;
+	font-size: 1em;
+	box-shadow: 10px 10px 5px #888888;
+	float: right;
+	margin-top: 1em;
+}
+.flash {
+	margin-top: 3em;
+	color: red;
+}
+.border {
+	margin: 1.8em;
+	border: 1px solid black;
+	height: 45em;
+	overflow: scroll;
+	display: inline-block;
+}
