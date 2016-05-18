@@ -11,7 +11,7 @@ class Book(Model):
     def register_user(self, info):
         if len(info['name']) < 2 or not NAME_REGEX.match(info['name']):
             return "err1"
-        elif len(info['alias']) < 2 or not NAME_REGEX.match(info['alias']):
+        elif len(info['alias']) < 2:
             return "err2"
         elif len(info['email']) < 1 or not EMAIL_REGEX.match(info['email']):
             return "err3"
@@ -25,15 +25,19 @@ class Book(Model):
             return "err7"
         else:
             pw_hash = self.bcrypt.generate_password_hash(info['password'])
+            title = info['name'].title() # capitalize first character of name (ex. john doe -> John Doe)
             user_query = "INSERT INTO users (name, alias, email, pw_hash, created_at, updated_at) VALUES (:name, :alias, :email, :pw_hash, NOW(), NOW())"
             user_data = {
-                'name': info['name'],
+                'name': title,
                 'alias': info['alias'],
                 'email': info['email'],
                 'pw_hash': pw_hash
                 }
             user = self.db.query_db(user_query, user_data)
-            return (info['name'])
+            get_id_query = "SELECT * FROM users WHERE email = :email LIMIT 1"
+            get_id_data = {'email': info['email']}
+            get_id = self.db.query_db(get_id_query, get_id_data)
+            return get_id[0]
 
     def login_user(self, info):
         user_query = "SELECT * FROM users WHERE email = :email LIMIT 1"
@@ -66,7 +70,7 @@ class Book(Model):
     def add_book(self, book):
         if book["title"] == "" or book["author"] == "" or book["review"] == "": # do not add if content is empty
             return False
-        # Check if a book already rexists in database with exactly same title and author.
+        # Check if a book already exists in database with exactly same title and author.
         check_existing = "SELECT * FROM books WHERE title = :title and author= :author"
         title_to_check = {'title':book['title'], 'author':book['author']}
         exist = self.db.query_db(check_existing, title_to_check)

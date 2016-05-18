@@ -8,14 +8,13 @@ class Books(Controller):
    
     def index(self):
         try: 
-            session['id'] != 0
-            session['form'] != 0
-            session['form2'] != 0
+            session['id'] = session['form'] = session['form2'] = True
         except:
-            session['id'] = ""
-            session['form'] = ""
-            session['form2'] = ""
+            session['id'] = session['form'] = session['form2'] = True
         return self.load_view('index.html')
+
+    def index_retry(self): # form values will remain on input boxes after register/login fail
+        return self.load_view('index.html')        
 
     def show(self):
         items = self.models['Book'].get_data()
@@ -30,12 +29,11 @@ class Books(Controller):
         return self.load_view('users/page.html', items=items[0], count=items[1], item_id=item_id)
 
     def process_register(self):
-        session['form'] = request.form
         user = self.models['Book'].register_user(request.form)
         if user == "err1":
             flash("Invalid Name. (Letters only, at least 2 characters.)")
         elif user == "err2":
-            flash("Invalid Alias. (Letters only, at least 2 characters.)")
+            flash("Invalid Alias. (At least 2 characters.)")
         elif user == "err3":
             flash("Invalid Email Address.")
         elif user == "err4":
@@ -47,17 +45,20 @@ class Books(Controller):
         elif user == "err7":
             flash("Password requires to have at least 1 uppercase letter and 1 numeric value.")
         else:
-            session['name']  = user
+            session['id']  = user['id']
+            session['name']  = user['name']
             return redirect('books')
-        return redirect('/')
+        session['form'] = request.form # form values will remain on input box after registration fail
+        return redirect('retry')
 
     def process_login(self):
         user = self.models['Book'].login_user(request.form)
         if user:
             session['id'],session['name']  = user
             return redirect('books')
+        session['form2'] = request.form # form value will remain on input box after login fail
         flash( "Wrong email and/or password.")
-        return redirect('/')
+        return redirect('retry')
 
     def process_logout(self):
         del session['id']
@@ -68,7 +69,6 @@ class Books(Controller):
 
     def books_add(self):
         items = self.models['Book'].get_data()
-
         return self.load_view('books/add.html', items=items[2])
 
     def process_add(self):

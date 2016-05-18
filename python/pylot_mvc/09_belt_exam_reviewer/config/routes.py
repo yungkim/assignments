@@ -1,6 +1,7 @@
 from system.core.router import routes
 
 routes['default_controller'] = 'Books'
+routes['/retry'] = 'Books#index_retry'
 routes['/books'] = 'Books#show'
 routes['/books/<item_id>'] = 'Books#books_page'
 routes['/books/add'] = 'Books#books_add'
