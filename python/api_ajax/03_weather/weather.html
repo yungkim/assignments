@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Weather</title>
+	<link rel="stylesheet" type="text/css" href="weather.css">
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		$('form').submit(function() {
+			var city = this.city.value
+			var invalid = city.match(/#/g) // returns "null" if "#" is not found, "#"" causes HTTP Error 401 by removing all characters after "#"
+			if (invalid != null){
+				console.log("Invalid City Name: " + city)
+				city = ""
+			}
+			console.log("City: " + city)
+			// Make sure to put your unique API key in the URL (taking out the brackets).
+			// &APPID={INSERTAPIKEY} will need to be at the end of each URL you access.
+				$.get("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&APPID=a201ece98820eff907f547960861131f", function(res) {
+					var html_str = ""; 
+					if (res.cod == "404") {
+						console.log("Error: City not found.");
+						html_str += "<h1 class='left'>City not found</h1>";
+						html_str += "<p class='left'>Please search again.</p>";
+					}
+					else {
+						console.log(res)
+						html_str += "<h1 class='left'>" +  res.name + "</h1>";
+						html_str += "<p class='left'>Temperature: " +  res.main.temp + "</p>";
+					}
+					$("#result").html(html_str);
+				}, 'json');
+			// don't forget to return false so the page doesn't refresh
+			return false;
+		});
+	});
+        	</script>
+</head>
+<body>
+	<div id="search">
+		<form>
+			<input type="text" name="city"><input type="submit" value="Search Weather">
+		</form>
+	</div>
+	<div id="result"></div>
+</body>
+</html>
