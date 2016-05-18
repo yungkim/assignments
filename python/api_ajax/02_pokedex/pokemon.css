@@ -1,0 +1,20 @@
+body {
+	background: #eee;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#pokemon_house {
+	max-width: 777px;
+	display: inline-block;
+}
+#pokedex {
+	width: 200px;
+	height: 450px;
+	border: 25px solid red;
+	border-bottom: 55px solid red;
+	display: inline-block;
+	vertical-align: top;
+	padding: 1em;
+}
+.center {
+	text-align: center;
+}
