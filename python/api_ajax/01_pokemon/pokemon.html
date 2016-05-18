@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Pokemon</title>
+</head>
+<body>
+	<div id="container">
+		<button onclick="setTimeout(myFunction, 500)" style="color:red;background:blue;">Click! Pokemon!</button>
+		<div id="pokemon_house"></div>
+		<script>
+		function myFunction() {
+		    for (var i = 1; i <= 151; i++) {
+			document.getElementById("pokemon_house").innerHTML += "<img src='http://pokeapi.co/media/img/"+i+".png'>";	
+		    }
+		}
+		</script>
+
+	</div>
+</body>
+</html>
