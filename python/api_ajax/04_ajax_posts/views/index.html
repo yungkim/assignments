@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Ajax Posts</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/ajax_posts.css">
+	<script src="/static/js/jquery-2.1.3.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('form').submit(function(){
+			$.post('/posts/create', $(this).serialize(), function(res) {
+				$('body').html(res);
+				console.log(res);
+			});
+		return false;
+		});
+	});
+	</script>
+</head>
+<body>
+	<div id="container">
+		<h1>My Posts</h1>
+		<div>
+			{% for memo in memos %}
+			<div class='memo'>   
+				<p>{{ memo['description'] }}</p>
+			</div>
+			{% endfor %}
+		</div>
+		
+		<div id="add_memo">
+			<form action="posts/create" method="post">
+				<p>Add a note:</p>
+				<textarea name="description" autofocus=""></textarea>
+				<input type="submit" value="Post It!">
+			</form>
+		</div>
+	</div>
+</body>
+</html>
