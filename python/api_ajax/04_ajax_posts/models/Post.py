@@ -3,6 +3,7 @@ from system.core.model import Model
 class Post(Model):
     def __init__(self):
         super(Post, self).__init__()
+        
     def all(self):
         query = "SELECT * FROM memos ORDER by created_at DESC LIMIT 6"
         return self.db.query_db(query)

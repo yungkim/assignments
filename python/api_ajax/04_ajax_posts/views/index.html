@@ -6,6 +6,25 @@
 	<link rel="stylesheet" type="text/css" href="/static/css/ajax_posts.css">
 	<script src="/static/js/jquery-2.1.3.min.js"></script>
 	<script>
+	function index() {
+		$.ajax({
+			url: '/index_json',
+			method: 'GET',
+			success: function(data){
+				// data back from controller
+				console.log("json data:")
+				console.log(data)
+				var htmlStr = "";
+				for(var i = 0; i < data['memos'].length; i++) {
+					htmlStr += "<div class='memo'>";
+					htmlStr += "<p>" + data.memos[i].description + "</p>";
+					htmlStr += "</div>";
+				}
+				$('#memos').html(htmlStr);
+			}
+		})
+	};
+	index();
 	$(document).ready(function(){
 		$('form').submit(function(){
 			$.post('/posts/create', $(this).serialize(), function(res) {
@@ -20,13 +39,7 @@
 <body>
 	<div id="container">
 		<h1>My Posts</h1>
-		<div>
-			{% for memo in memos %}
-			<div class='memo'>   
-				<p>{{ memo['description'] }}</p>
-			</div>
-			{% endfor %}
-		</div>
+		<div id="memos"></div>
 		
 		<div id="add_memo">
 			<form action="posts/create" method="post">

@@ -7,8 +7,7 @@ class Posts(Controller):
         self.db = self._app.db
    
     def index(self):
-        memos = self.models['Post'].all()
-        return self.load_view('index.html', memos=memos)
+        return self.load_view('index.html')
 
     def index_json(self):
         memos = self.models['Post'].all()
