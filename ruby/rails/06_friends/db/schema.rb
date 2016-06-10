@@ -31,3 +31,7 @@ ActiveRecord::Schema.define(version: 20160610021256) do
   end
 
 end
+
+# ==> commands to create models on terminal
+# rails g model User first_name:string last_name:string
+# rails g model Friendship user:references friend:references
