@@ -1,0 +1,66 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="container">
+        <div id="top_gold">
+            <p>Your Gold: <div id="gold_earned"><%=@gold%></div></p>
+        </div>
+        <div id="center_boxes">
+            <div class="box">
+                <h3>Farm</h3>
+                <p>(earns 10-20 golds)</p>
+                <img src="assets/farm.jpg">
+                <form action="/rpg/farm" method="post">
+                    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                    <input type="hidden" name="building" value="farm">
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="box">
+                <h3>Cave</h3>
+                <p>(earns 5-10 golds)</p>
+                <img src="assets/cave.jpg">
+                <form action="/rpg/cave" method="post">
+                    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                    <input type="hidden" name="building" value="cave">
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="box">
+                <h3>House</h3>
+                <p>(earns 2-5 golds)</p>
+                <img src="assets/house.jpg">
+                <form action="/rpg/house" method="post">
+                    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                    <input type="hidden" name="building" value="house">
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="box"><h3>Casino</h3>
+                <p>(earns/takes 0-50 golds)</p>
+                <img src="assets/casino.jpg">
+                <form action="/rpg/casino" method="post">
+                    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                    <input type="hidden" name="building" value="casino">
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+        </div>
+        <div id="bottom_activities">
+            <p>Activities:</p>
+            <div id="activities_box">
+                    <p>
+                    <% @activities.each do |activity| %>
+                    <p class='<%=activity[:color]%>'><%=activity[:activity]%></p>
+                    <% end %>
+                    </p>
+            </div>
+        </div>
+        <form action="/rpg/clear" method="post">
+            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+            <input type="submit" value="Reset">
+        </form>
+    </div>
+  </body>
+</html>

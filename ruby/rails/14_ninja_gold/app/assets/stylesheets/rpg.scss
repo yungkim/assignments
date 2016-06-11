@@ -1,0 +1,43 @@
+// Place all the styles related to the rpg controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  font-family: monaco;
+  margin: 0.5em;
+}
+#top_gold p, #gold_earned {
+    display: inline-block;
+    font-size: 2em;
+    margin-right: 1em;
+}
+#gold_earned {
+    width: 200px;
+    border: 1px solid black;
+    background: red;
+    color: orange;
+    text-align: center;
+}
+div.box {
+    color: #ffffff;
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+    display: inline-block;
+    text-align: center;
+    background: url('../assets/background.png');
+}
+img {
+    margin-bottom: 15px;
+}
+#activities_box {
+    border: 2px solid black;
+    width: 900px;
+    height: 300px;
+    overflow: scroll;
+}
+    .green {
+        color: green
+    }
+    .red {
+        color: red
+    }
