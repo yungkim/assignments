@@ -1,0 +1,21 @@
+<table>
+    <tr>
+        <td>Name: </td>
+        <td><%= @product.name %></td>
+    </tr>
+    <tr>
+        <td>Description: </td>
+        <td><%= @product.description %></td>
+    </tr>
+    <tr>
+        <td>Price: </td>
+        <td><%= number_to_currency(@product.pricing) %></td>
+    </tr>
+    <tr>
+        <td>Category: </td>
+        <td><%= @product.category.name %></td>
+    </tr>    
+</table>
+
+<a href="<%= @product.id %>/edit">Edit</a> |
+<a href="../products">Back</a>
