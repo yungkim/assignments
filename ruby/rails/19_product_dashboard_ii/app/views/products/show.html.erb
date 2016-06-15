@@ -1,0 +1,61 @@
+<table>
+    <tr>
+        <td>Name: </td>
+        <td><%= @product.name %></td>
+    </tr>
+    <tr>
+        <td>Description: </td>
+        <td><%= @product.description %></td>
+    </tr>
+    <tr>
+        <td>Price: </td>
+        <td><%= number_to_currency(@product.pricing) %></td>
+    </tr>
+    <tr>
+        <td>Category: </td>
+        <td><%= @product.category.name %></td>
+    </tr>    
+</table>
+
+<p>
+    <a href="<%= @product.id %>/edit">Edit</a> |
+    <a href="../products">Back</a>
+</p>
+
+<h2>Comment:</h2>
+
+<form action="/comments/create" method="post">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <input name="comment[product_id]" type="hidden" value="<%= @product.id %>">
+    <textarea name="comment[comment]"></textarea>
+    <input type="submit" value="Submit" /></p>
+</form>
+
+<% if flash[:errors] %>
+    <p>Error: <%= flash[:errors] %></p>
+<% end %>
+
+<% if @comments[0] %>
+<table>
+    <thead>
+        <tr>
+            <td>Comments</td>
+        </tr>
+    </thead>
+    <tbody>       
+        <% @comments.each do |comment| %>
+        <tr>
+            <td><%= comment.comment %></td>
+            <td>
+                <form action="/comments/<%= comment.id %>" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="hidden" name="product_id" value="<%= @product.id %>">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="submit" value="Delete">
+              </form>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<% end %>
