@@ -1,0 +1,41 @@
+<% if flash[:errors_name] || flash[:errors_description] %>
+<p style="color:red">Sorry, failed to submit form. Please enter the required information.</p>
+<% end %>
+<form action="create" method="post">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <table>
+        <tr>
+            <td>Ninja Name*:</td>
+            <td><input name="ninja[name]" size="30" type="text" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+
+                <% if flash[:errors_name] %>
+                <p style="color:red"><%= flash[:errors_name] %></p>
+                <% end %>
+            </td>
+        </tr>
+        <tr>
+            <td>Description*:</td>
+            <td><textarea  name="ninja[description]"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <% if flash[:errors_description] %>
+                <p style="color:red"><%= flash[:errors_description] %></p>
+                <% end %>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Submit" style="float:right">
+            </td>
+            
+        </tr>
+        
+    </table>
+</form>
