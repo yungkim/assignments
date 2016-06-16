@@ -1,0 +1,24 @@
+<h1>Edit</h1>
+<form action="/users/<%= @user.id %>" method="post">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="PATCH">
+    <p>
+        <label for="Email">Email</label>
+        <input id="Email" name="user[email]" size="30" type="text" value="<%= @user.email %>" />
+    </p>
+    <p>
+        <label for="Name">Name</label>
+        <input id="Name" name="user[name]" size="30" type="text" value="<%= @user.name %>" />
+    </p>
+
+    <p>
+        <input name="Update" type="submit" value="Update" />
+    </p>
+</form>
+
+<!-- DELETE   /users/:id(.:format)    users#destroy -->
+<form action="/users/<%= @user.id %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Account">
+</form>
