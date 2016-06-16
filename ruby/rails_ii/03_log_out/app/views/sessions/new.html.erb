@@ -1,0 +1,16 @@
+<h1>Sign In</h1>
+
+<% if not current_user %>
+<form action="/sessions" method="post" role="form">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <p>
+    <label for="email">Email</label>
+    <input type="email" class="form-control" name="email" placeholder="Enter email">
+  </p>
+  <p>
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="Enter password">
+  </p>
+  <button type="submit" class="btn btn-default">Log In</button>
+</form>
+<% end %>
