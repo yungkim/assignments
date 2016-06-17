@@ -1,0 +1,10 @@
+
+<div id="emoji_area" style="text-align:center;padding:2em;width:25em">
+    <% if @mood %>
+    <h1>You feel... <img src='<%= @mood %>' alt='emoji' style="vertical-align: middle" /> today!</h1>
+    <% else %>   
+    <h1>I'm sorry. I could not  recognize you mood "<%=params[:mood]%>". Please try again.</h1>
+    <% end %>
+    <a href="/" style="float:right">Enter Another Mood</a><br>
+    <h5><a href="https://api.github.com/emojis" style="float:right">Check emoji list here</a></h5>
+ </div> 

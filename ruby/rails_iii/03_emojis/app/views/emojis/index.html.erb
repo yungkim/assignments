@@ -1,0 +1,12 @@
+<div style="text-align:center;padding:2em">
+    <%= image_tag "emoji.jpg", :height => "150" %><br>
+    <%= image_tag("welcome.png", :height => "150") %>
+    <h1>Share your Mood</h1>
+    <p>Please enter your emoji code here:</p>
+    <form action="/mood" method="post">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+        <input type="text" name="mood">
+        <input type="submit" value="Check Code">
+    </form>
+    <p><%= image_tag "mood.png" %></p>
+</div>
