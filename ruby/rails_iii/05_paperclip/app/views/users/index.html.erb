@@ -1,0 +1,9 @@
+<% if @users %>
+  <% @users.each do |user| %>
+    <p>Name: <%= user.first_name %> <%= user.last_name %></p>
+    <p>Email: <%= user.email %></p>
+    <%= image_tag user.avatar.url %>
+    <hr>
+  <% end %>
+<% end %>
+<p><a href="/users/new">Add new</a></p>
