@@ -1,0 +1,29 @@
+<h1>Welcome <%= @user.name %></h1>
+
+<p><a href="/secrets">View All Secrets</a></p>
+
+<% if @user.id == session[:user_id]%>
+<p><a href="/users/<%= @user.id %>/edit">Edit Profile</a></p>
+<form action="/secrets/create" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="secret[content]">New Secret:</label><br>
+  <textarea id="secret[content]" name="secret[content]" cols="30" rows="10" placeholder="Write your secret here."></textarea><br>
+  <input type="submit" value="Create Secret">
+</form>
+<% end %>
+
+<% if @user.secrets %>
+    <h2><%= @user.name %>'s' Secrets:</h2>
+    <% @user.secrets.each do |secret| %>
+        <p>
+            <!-- secrets_destroy_path   GET /secrets/destroy(.:format)  secrets#destroy -->
+            <form action="/secrets/destroy" method="POST">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <input type="hidden" name="secret[id]" value="<%= secret.id %>">
+              <input type="hidden" name="_method" value="DELETE">
+              <%= secret.content %>
+              <input type="submit" value="Delete">
+            </form>
+        </p>
+    <% end %>
+<% end %>
