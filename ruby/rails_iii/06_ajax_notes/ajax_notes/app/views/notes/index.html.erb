@@ -1,0 +1,45 @@
+<script>
+  $(document).ready(function(){
+    $('body').on('submit', 'form', function(){
+      $.post(
+        $(this).attr('action'),
+        $(this).serialize(),
+        function(data){
+          console.log('Data Received from the Ajax call', data);
+          //put additional codes here to update html, etc.
+          //for example things like
+          $('#message').html(data.html_data);
+        },
+        "json"
+      );
+      return false;
+    });
+  });
+</script>
+
+<h4>Notes</h4>
+    <%= form_for @note, :url => notes_path, :html => {:multipart => true} do |f| %>
+      <%= f.text_field :title, placeholder: "Insert note title here..." %>
+      <%= f.submit :'Add Note' %>
+    <% end %><hr>
+<div id="message">
+    <% @notes.each do |note| %>
+    <form action="/notes/<%= note.id %>" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <h3>
+        <%= note.title %> 
+        <input type="submit" value="Delete">
+      </h3>
+    </form>
+    <form action="/notes/<%= note.id %>" method="POST">
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="PATCH">
+        <%= text_area_tag 'description', note.description, placeholder:"Enter description here..." %>
+        <input name="Update" type="submit" value="Update" />
+    </form>
+    <hr>
+
+    <% end %>
+</div>
+
