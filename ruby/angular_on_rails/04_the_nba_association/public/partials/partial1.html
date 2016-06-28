@@ -1,0 +1,49 @@
+<div>
+    <h2>NBA Players</h2>
+    <p>Search By: 
+        <input type="text" ng-model="search" placeholder="Any">
+        <input type="text" ng-model="search.first_name" placeholder="First Name">
+        <input type="text" ng-model="search.last_name" placeholder="Last Name">
+        <input type="text" ng-model="search.name" placeholder="Team Name">
+    </p>
+    <table>
+        <thead >
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>NBA Team</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="player in players.players | orderBy:'last_name' | filter:search" >
+                <td>{{ player.first_name }}</td> 
+                <td>{{ player.last_name }}</td>
+                <td>{{ player.name }}</td>
+                <td><button ng-click="deletePlayer(player.id)">Delete Player</button></td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h2>Add a new player</h2>
+    <p>
+        <label>First Name:</label>
+        <input ng-model="newPlayer.player.first_name" type="text">
+    </p>
+    <p>
+        <label>Last Name:</label>
+        <input ng-model="newPlayer.player.last_name" type="text">
+    </p>
+    <p>
+        <label>Team:</label>
+        <select ng-model="newPlayer.player.team_id">
+            <option ng-repeat="team in players.teams | orderBy:'name'" value="{{ team.id }}">{{ team.name }}</option>
+        </select>
+    </p>
+    <input ng-click="createPlayer()" type="submit" value="Create Player">
+</div>
+
+

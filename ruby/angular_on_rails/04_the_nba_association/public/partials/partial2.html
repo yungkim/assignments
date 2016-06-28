@@ -1,0 +1,19 @@
+<div>
+    <h2>NBA Teams</h2>
+    <p>Search By: 
+        <input type="text" ng-model="search" placeholder="Team Name">
+    </p>
+    <ul>
+        <li ng-repeat="team in teams | orderBy:'name' | filter:search">{{ team.name }} <button ng-click="deleteTeam(team.id)">Delete Team</button></li>
+    </ul>
+
+</div>
+
+<div>
+    <h2>Add a new team</h2>
+    <p>
+        <label>Name:</label>
+        <input ng-model="newTeam.team.name" type="text">
+    </p>
+    <input ng-click="createTeam()" type="submit" value="Create Team">
+</div>

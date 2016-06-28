@@ -1,0 +1,16 @@
+<div>
+    <h2>NBA Rosters</h2>
+    <p>
+        <label>Select a team:</label>
+        <select ng-model="filter">
+            <option value="">View All Teams</option>
+            <option ng-repeat="team in players.teams | orderBy:'name'">{{ team.name }}</option>
+        </select>
+    </p>
+    <ul>
+        <li ng-repeat="player in players.players | orderBy:'name' | filter:filter ">
+                {{ player.name + " - " +player.first_name + " " + player.last_name }}    
+        </li>
+    </ul>
+
+</div>

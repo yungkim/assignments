@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NBA Info - Angular/Rails</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js" %>
+<!-- Let's add the ability to route in our application. First we need to add the angular routes library to give us access to the $routeProvider service. -->
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
