@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_5_ttt" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="center" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9iY-Iq-PYS">
+                                <rect key="frame" x="0.0" y="92" width="600" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TTT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyu-xU-12V">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="64A-bD-yvK">
+                                <rect key="frame" x="0.0" y="453" width="600" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Winner Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMM-6o-dTk">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1eN-i3-llY">
+                                <rect key="frame" x="0.0" y="502" width="600" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nt7-nZ-5GY">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
+                                        <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="resetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8E7-gP-REW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6GK-Fw-h2c">
+                                <rect key="frame" x="50" y="128" width="500" height="310"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0fP-Ta-5vs">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaM-ap-2Vg">
+                                                <rect key="frame" x="0.0" y="0.0" width="164" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="oP7-BQ-b5y"/>
+                                                    <constraint firstAttribute="width" constant="100" id="yqg-v3-SRR"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="gridButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZpL-Gj-HSj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4V-wf-hly">
+                                                <rect key="frame" x="169" y="0.0" width="163" height="100"/>
+                                                <connections>
+                                                    <action selector="gridButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LFG-cn-aAt"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeP-n6-0Gs">
+                                                <rect key="frame" x="337" y="0.0" width="164" height="100"/>
+                                                <connections>
+                                                    <action selector="gridButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WYc-R6-kUJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rkO-46-ZxH">
+                                        <rect key="frame" x="0.0" y="105" width="500" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7XS-Z1-BEI">
+                                                <rect key="frame" x="0.0" y="0.0" width="164" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="2DY-Au-gHK"/>
+                                                    <constraint firstAttribute="height" constant="100" id="rT8-hK-eHB"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="gridButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wSr-lc-Rt6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4w2-W9-uz9">
+                                                <rect key="frame" x="169" y="0.0" width="163" height="100"/>
+                                                <connections>
+                                                    <action selector="gridButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bSi-Hk-5Po"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBM-2W-krK">
+                                                <rect key="frame" x="337" y="0.0" width="164" height="100"/>
+                                                <connections>
+                                                    <action selector="gridButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oDi-NZ-nyE"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Zca-TJ-2zs">
+                                        <rect key="frame" x="0.0" y="210" width="500" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGz-yI-ms2">
+                                                <rect key="frame" x="0.0" y="0.0" width="164" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="0jt-ZW-CMq"/>
+                                                    <constraint firstAttribute="height" constant="100" id="kzJ-hS-WtD"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="gridButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R24-Fb-5H0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuU-F4-IEE">
+                                                <rect key="frame" x="169" y="0.0" width="163" height="100"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="gridButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wsX-hE-OPp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFg-DU-aEp">
+                                                <rect key="frame" x="337" y="0.0" width="164" height="100"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="gridButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="34a-d3-I7b"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="6GK-Fw-h2c" secondAttribute="trailing" constant="30" id="3h2-Su-Q8E"/>
+                            <constraint firstItem="6GK-Fw-h2c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="C1t-1v-w9w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="64A-bD-yvK" secondAttribute="trailing" constant="-20" id="DiH-DJ-poo"/>
+                            <constraint firstItem="1eN-i3-llY" firstAttribute="top" secondItem="64A-bD-yvK" secondAttribute="bottom" constant="37" id="LZ6-xG-hr4"/>
+                            <constraint firstItem="64A-bD-yvK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="QUg-fT-VjB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1eN-i3-llY" secondAttribute="trailing" constant="-20" id="Tye-Xy-Ysa"/>
+                            <constraint firstItem="1eN-i3-llY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="ZZf-o2-h35"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1eN-i3-llY" secondAttribute="bottom" constant="28" id="jLg-Ux-XOQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9iY-Iq-PYS" secondAttribute="trailing" constant="-20" id="uj4-sr-fCi"/>
+                            <constraint firstItem="9iY-Iq-PYS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="wzZ-DV-aaJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gridButton1" destination="qaM-ap-2Vg" id="Of9-w6-kmS"/>
+                        <outlet property="gridButton2" destination="S4V-wf-hly" id="TBc-qZ-nJT"/>
+                        <outlet property="gridButton3" destination="qeP-n6-0Gs" id="UAw-kh-4FF"/>
+                        <outlet property="gridButton4" destination="7XS-Z1-BEI" id="Y9b-EL-28t"/>
+                        <outlet property="gridButton5" destination="4w2-W9-uz9" id="rZv-tw-kzC"/>
+                        <outlet property="gridButton6" destination="ZBM-2W-krK" id="ZGq-Jq-EDS"/>
+                        <outlet property="gridButton7" destination="IGz-yI-ms2" id="pTd-Wx-Dck"/>
+                        <outlet property="gridButton8" destination="fuU-F4-IEE" id="4p8-Sg-scw"/>
+                        <outlet property="gridButton9" destination="AFg-DU-aEp" id="5SV-eM-6l6"/>
+                        <outlet property="winnerLabel" destination="GMM-6o-dTk" id="EC7-dN-mpC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="375" y="337"/>
+        </scene>
+    </scenes>
+</document>
