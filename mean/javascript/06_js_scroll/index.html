@@ -1,0 +1,82 @@
+<!-- JS Scroll
+Before You Start:
+Some assignments you see going forward will be to modify existing code instead of building from scratch. That's because when you start working as a developer, you’ll most likely work on an existing project. It’s important to learn how to jump into an established codebase and quickly learn how to make feature updates.
+
+This assignment is designed to challenge you to understand the current code base and to modify it.
+
+First, clone the code from:  https://github.com/codingdojoco/js_scroll
+
+If you aren't already familiar with the setInterval method, do a little research.
+
+Next, work on the following features/bug fixes after you explore the codebase and have a sense of how the program works.
+
+Bug List:
+The last character in the word doesn’t show up!
+The spaces in the words do not appear correctly, i.e., the cursor does not shift to the right when encountering a space, instead lingering on the previous character.
+Hints:
+Slow the interval down
+non-breaking space
+Note:  At this point, you're not expected to be able to create something like this from scratch, so don’t worry if the code seems daunting at first. By the end of the track, you will be able to build projects like this from scratch. -->
+
+<html>
+<head>
+	<title>Javascript Demo</title>
+	<style>
+		body {
+			background-color:black;
+			font-family: monospace;
+			color:white;
+			font-size:50px;
+			text-align: center;
+			margin-top:20%;
+		}
+
+		#magic{
+			color: #777;
+			border-right: 1px solid #777;
+			padding-right: 7px;
+			display: inline;
+		}
+	</style>
+</head>
+<body>
+
+	Coding is <div id="magic"></div>
+
+	<script>
+
+		var words = ["fun", "exciting", "about not giving up", "being helpful", "being open", "what I learned at CodingDojo!"],
+			el = document.getElementById('magic'),
+			word_counter = 0,
+			character_counter = 0;
+
+		function updateText()
+		{
+                                    if ((words[word_counter][character_counter] == " ") && (character_counter <= words[word_counter].length)) {
+                                                el.innerHTML = el.innerHTML+"&nbsp;"
+                                                character_counter++
+                                    } else {
+            			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
+                                    }
+                                    
+
+
+			if(character_counter -1 == words[word_counter].length)
+			{
+				word_counter++; 	//choose a different word
+				character_counter = 0;	//start over with the first character of the word
+				el.innerHTML = '';  //set the html to be blank
+
+				//if we're displaying the last word, go back to the first word
+				if(word_counter == words.length)
+					word_counter = 0;
+			}
+		}
+
+		setInterval(updateText,400);
+
+	</script>
+
+</body>
+
+</html>
