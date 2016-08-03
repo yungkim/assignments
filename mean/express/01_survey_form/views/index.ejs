@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+</head>
+<body>
+    <h1>Welcome to My Survey</h1>
+    <div>
+        <form action="/result", method="post">
+  <fieldset>
+    <legend>Personal information:</legend>
+    Your Name: (Mandatory)
+    <input type="text" name="name" placeholder="Enter your name"><br>
+    Dojo Location:
+    <select name="location">
+      <option value="Seattle">Seattle</option>
+      <option value="San Francisco">San Francisco</option>
+      <option value="Dallas">Dallas</option>
+      <option value="New York">New York</option>
+    </select>
+    <br>
+
+    Favorite Language:
+    <select name="language">
+      <option value="Javascript">Javascript</option>
+      <option value="Python">Python</option>
+      <option value="Ruby">Ruby</option>
+      <option value="Swift">Swift</option>
+    </select>
+    <br>
+    
+    Comment: (Optional)
+    <textarea name="comment" placeholder="Enter text here..."></textarea>
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
+    </div>
+</body>
+</html>
