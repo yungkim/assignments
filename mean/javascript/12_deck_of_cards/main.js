@@ -35,8 +35,11 @@ function Player(name){
 }
 
 Deck.prototype.buildDeck = function(){
-  var suits = ['diamonds', 'clubs', 'hearts', 'spades'],
+    //https://en.wikipedia.org/wiki/Playing_cards_in_Unicode
+  var suits = ['\u2666', '\u2663', '\u2665', '\u2660'],
       values = ['ace','2','3','4','5','6','7','8','9','10','jack','queen','king'],
+  // var suits = ['diamonds', 'clubs', 'hearts', 'spades'],
+  //     values = ['ace','2','3','4','5','6','7','8','9','10','jack','queen','king'],
       // Capture snapshot of this for use in callback function
       self = this;
 
