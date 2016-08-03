@@ -107,16 +107,16 @@ console.log(p.takeCard(c).takeCard(c).takeCard(c))
 console.log(p.discard(1))
 
 // [nodemon] starting `node main.js`
-// Card { value: '6', suit: 'diamonds' }
+// Card { value: '4', suit: '♠' }
 // Player {
 //   name: 'Charlie',
 //   hand:
-//    [ Card { value: '7', suit: 'spades' },
-//      Card { value: '3', suit: 'diamonds' },
-//      Card { value: '5', suit: 'hearts' } ] }
+//    [ Card { value: '8', suit: '♠' },
+//      Card { value: '6', suit: '♠' },
+//      Card { value: '8', suit: '♥' } ] }
 // Player {
 //   name: 'Charlie',
 //   hand:
-//    [ Card { value: '7', suit: 'spades' },
-//      Card { value: '5', suit: 'hearts' } ] }
+//    [ Card { value: '8', suit: '♠' },
+//      Card { value: '8', suit: '♥' } ] }
 // [nodemon] clean exit - waiting for changes before restart
