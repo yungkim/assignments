@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Group Chat</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            // this triggers the connection event in our server!
+            var socket = io.connect();
+            var user_name = window.prompt("Write your name", "Name");
+            alert(user_name);
+            $('#name').html(user_name + ": ")
+            socket.emit("send_button", {user_name: user_name, text: '<i>entered chat room.</i>'});
+            // this event will emit to the server when somebody clicked the send button
+            $('button').click(function(){
+                socket.emit("send_button", {user_name: user_name, text: $('#text').val() });
+            });
+            socket.on('push_chat', function(data){
+                $('#board').html('')
+                for (var i in data.response) {
+                    $('#board').append('<p>' + data.response[i].user_name + ': ' + data.response[i].text + '</p>');
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <h1>Conversation Board</h1>
+    <div id="board" style="width:300px;height:300px;border:1px solid black;overflow:auto"></div>
+    <span id="name"></span><input type="text" id="text">
+    <button>Send</button>
+</body>
+</html>
