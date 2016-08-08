@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Dojo Message Board</title>
+    <style type="text/css">.show_posts{margin-left: 2em;border: 1px solid blue};.comments{background: red}</style>
+</head>
+<body>
+    <h1><a href="/">The Dojo Message Board</a></h1>
+    <hr>
+
+    <div id="new_post" style="border:1px solid black">
+        <form action="/message" method="POST">
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name" placeholder="Enter your name"><br>
+            <label for="text">Message: </label>
+            <input type="text" name="text" id="text" placeholder="Enter your message"><br>
+            <input type="submit" value="Post message">
+        </form>
+    </div>
+
+    <% for (var i=0; i < results.length; i++) { %>
+    <div class="show_posts">
+        <table>
+        
+            <tr>
+                <td><h2><%= results[i].name %>: </h2></td>
+                <td><h2><%= results[i].text %></h2></td>
+            </tr>
+            <% for (var j=0; j < results[i]._comments.length; j++) { %>
+            <tr>
+                <td>Comments <%= j+1 %>:</td>
+                <td><h4><%= results[i]._comments[j].name %> </h4></td>
+                <td><h2><%= results[i]._comments[j].text %></h2></td>
+            </tr>
+            <% } %>
+        </table>
+
+        <div class="new_comment">
+            <form action="/comment/<%= results[i].id %>" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" placeholder="Enter your name"><br>
+                <label for="text">Comment:</label>
+                <input type="text" name="text" id="text" placeholder="Enter your comment"><br>
+                <input type="submit" value="Post comment">
+            </form>
+        </div>
+    </div>
+    <% } %>
+
+
+</body>
+</html>
