@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <style type="text/css">td{border:1px solid black};</style>
+</head>
+<body>
+    <h1>Dog Dashboard - Index</h1>
+
+
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Breed</td>
+                <td>Color</td>
+            </tr>
+        </thead>
+        
+        <tbody>
+        <% for(var i=0; i < results.length; i++) { %>
+           <tr>
+             <td><a href="/dogs/<%= results[i].id %>"><%= results[i].name %></a></td>
+             <td><a href="/dogs/<%= results[i].id %>"><%= results[i].breed %></a></td>
+             <td><a href="/dogs/<%= results[i].id %>"><%= results[i].color %></a></td>
+           </tr>
+        <% } %>
+        </tbody>
+    </table>
+
+    <h3><a href="/dogs/new">Add a New Dog</a></h3>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dog</title>
+</head>
+<body>
+    <h1>Dog Dashboard - Detail</h1>
+    <h2>Name: <%= results.name %></h2>
+    <h2>Breed: <%= results.breed %></h2>
+    <h2>Color: <%= results.color %></h2>
+    <form action="/dogs/<%= results.id %>/destroy" method="POST">
+        <button>Delete</button>
+    </form>
+    <h4><a href="/dogs/<%= results.id %>/edit">Edit</a></h4>
+    <h4><a href="/">Back</a></h4>
+
+</body>
+</html>

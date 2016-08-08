@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit</title>
+    <style type="text/css">td{border:1px solid black};</style>
+</head>
+<body>
+    <h1>Dog Dashboard - Edit</h1>
+
+
+    <form action="/dogs/<%= results.id %>" method="POST">
+        Name:<br>
+        <input type="text" name="name" value="<%= results.name %>"><br>
+        Breed:<br>
+        <input type="text" name="breed" value="<%= results.breed %>"><br>
+        Color:<br>
+        <input type="text" name="color" value="<%= results.color %>"><br>
+        <button>Submit</button>
+    </form>
+
+    <h3><a href="/dogs/<%= results.id %>">Back</a></h3>
+
+</body>
+</html>
