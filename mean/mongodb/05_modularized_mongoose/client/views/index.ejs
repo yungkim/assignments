@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <link rel='stylesheet' href='/css/style.css' />
+</head>
+<body>
+    <h1>Dog Dashboard - Index</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Breed</td>
+                <td>Color</td>
+            </tr>
+        </thead>
+        
+        <tbody>
+        <% for(var i=0; i < dogs.length; i++) { %>
+           <tr>
+             <td><a href="/dogs/<%= dogs[i].id %>"><%= dogs[i].name %></a></td>
+             <td><a href="/dogs/<%= dogs[i].id %>"><%= dogs[i].breed %></a></td>
+             <td><a href="/dogs/<%= dogs[i].id %>"><%= dogs[i].color %></a></td>
+           </tr>
+        <% } %>
+        </tbody>
+    </table>
+
+    <h3><a href="/dogs/new">Add a New Dog</a></h3>
+    <img src="/images/disney-dog-clipart-1.jpg">
+
+</body>
+</html>
