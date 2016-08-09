@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- YOU CAN ALSO LOAD ANGULAR VIA CDN, IT WILL JUST BE SLOWER -->
+    <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+    <script>
+        var app = angular.module('app', []);
+        console.log(app)
+        app.controller('divController', ['$scope', function($scope) {
+            $scope.myName = 'Yung';
+            $scope.myFavoriteLanguage = 'JavaScript';
+            $scope.myFavoriteJSLibrary = 'Angular';
+        }]);
+    </script>
+</head>
+
+<body>
+    <div ng-controller="divController">
+        <p>Hello, my name is: {{myName}}, my favorite language is: {{myFavoriteLanguage}}, my favorite JS framework is: {{myFavoriteJSLibrary}}</p>
+        <p> OR </p>
+        <p>Hello, my name is: <span ng-bind="myName"></span>, my favorite language is: <span ng-bind="myFavoriteLanguage"></span>, my favorite JS framework is: <span ng-bind="myFavoriteJSLibrary"></span></p>
+    </div>
+</body>
+
+</html>
