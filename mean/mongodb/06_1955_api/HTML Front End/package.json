@@ -1,0 +1,11 @@
+{
+  "name": "html_front_end",
+  "version": "1.0.0",
+  "description": "Build a simple HTML front end that's served by an alternate Node server, and write an AJAX call to retrieve your list of names.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yung Kim",
+  "license": "ISC"
+}

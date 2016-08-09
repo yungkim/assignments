@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){         
+            $("button").click(function(){
+                $.ajax({url: "http://localhost:8000", success: function(result){
+                    $("#data").html('');
+                    for (var i=0; i<result.people.length; i++) {
+                        $("#data").append('<h1>' + result.people[i].name + '</h1>');
+                    };       
+                }});
+            });
+        })
+    </script>
+</head>
+<body>
+    <h1>Welcome to index.html</h1>
+    <button id="button">Get Data</button>
+    <div id="data"></div>
+</body>
+</html>
