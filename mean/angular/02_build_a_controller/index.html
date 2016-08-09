@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Build a Controller</title>
+    <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        var app = angular.module('app', []);
+        app.controller('divController', ['$scope', function($scope) {
+            $scope.food = '';
+            $scope.list = [];
+            $scope.error = '';
+            // $scope.query = '';
+            $scope.addController = function(){
+                console.log('Button clicked')
+                if ($scope.list.includes($scope.food)) {
+                    $scope.error = 'Error: Food already added!';
+                } else if ($scope.food == '') {
+                    $scope.error = 'Error:  Food field is empty!';
+                } else {
+                    $scope.error = '';
+                    $scope.list.push($scope.food)
+                }     
+            }
+        }]);
+    </script>
+</head>
+<body>
+
+    <div ng-controller="divController">
+
+        <h1>Food</h1>
+
+        <div>
+            <p>Favorite Food
+                <input type="text" ng-model="food" placeholder="Enter Food Name" autofocus>
+                <button ng-click = "addController();">Add Food</button>
+                <span ng-bind="error" style="color:red"></span>
+            </p>
+            <p>Currently typing:
+                <span ng-bind="query.food"></span>
+            </p>
+        </div>
+
+        <div style="border:2px solid blue;height:300px;width:300px;overflow:auto;padding:1em">
+            <input type="text" name="" placeholder="Filter..." ng-model="query">
+            <p ng-repeat="x in list | filter: query track by $index">
+              {{ x }}
+            </p>
+        </div>
+
+    </div> <!-- end of ng-controller="divController" -->
+
+</body>
+</html>
