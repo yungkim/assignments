@@ -1,0 +1,14 @@
+{
+  "name": "modularize",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Yung Kim"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}

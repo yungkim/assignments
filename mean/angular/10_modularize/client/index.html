@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <script src='angular/angular.js'></script>
+  <script src='angular-route/angular-route.js'></script>
+<!--         This is the monolithic JavaScript that you should be modularizing.
+        The whole project has 5 problems in it, that when rectified will allow the project to run.
+        Feel free to improve upon code quality, readability, and comments. -->     
+  <title>Modularize</title>
+  <script type="text/javascript" src="./js/factories/userFactory.js"></script>
+  <script type="text/javascript" src="./js/controllers/editController.js"></script>
+  <script type="text/javascript" src="./js/controllers/indexController.js"></script>
+  <script type="text/javascript" src="./js/controllers/newController.js"></script>
+  <script type="text/javascript" src="./js/config/routes.js"></script>
+</head>
+<body>
+  <h1>Names</h1>
+  <div ng-view>
+  </div>
+</body>
+</html>

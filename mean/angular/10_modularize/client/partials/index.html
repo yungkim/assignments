@@ -1,0 +1,16 @@
+<h3>List of Names</h3>
+<div ng-repeat = "user in users track by $index">
+  <p>{{$index+1}}. {{user.name}}
+    <button ng-click = "show($index)">
+      Edit User
+    </button>
+    <button ng-click = "delete($index)">
+      Remove User
+    </button>
+  </p>
+</div>
+<a ng-href = '#/new'>
+  <button ng-click = "new()">
+    Create User
+  </button>
+</a> 
