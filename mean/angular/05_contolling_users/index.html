@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <title>Controlling Users</title>
+    <script src="bower_components/angular/angular.js" charset="utf-8"></script>
+    <style type="text/css">
+        h4 {
+            width:300px;
+        }
+        input, button {
+            float: right;
+        }
+        table {
+            margin-top: 3em;
+            border-collapse: collapse;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #ccc;
+            
+        }
+        td {
+            border: 1px solid black;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+    <script type="text/javascript">
+        var app = angular.module('app', []);
+        app.controller('divController', ['$scope', function($scope) {
+            $scope.tableVisible = false;
+            $scope.list = [];
+            $scope.newUser = {};
+            $scope.firstName = '';
+            $scope.lastName = '';
+            $scope.favLanguage = '';
+            $scope.error = '';
+            $scope.createUser = function(){
+                console.log('Create User Button clicked')             
+                if (JSON.stringify($scope.newUser) === '{}') {
+                    $scope.error = 'Error:  Fields cannot be empty!';
+                } else {
+                    $scope.error = '';
+                    $scope.list.push($scope.newUser)
+                    $scope.tableVisible = true;
+                }     
+                $scope.newUser = {};
+            };
+            $scope.printIndex = function(val){
+                console.log(val);
+                $scope.list.splice(val, 1);
+                console.log($scope.list.length)
+                if ($scope.list.length === 0 ) {
+                    $scope.tableVisible = false;
+                };
+            };
+        }]);
+    </script>
+</head>
+<body>
+    <div ng-controller="divController">
+        <form>
+          <fieldset>
+            <legend>Users Controller</legend>
+            <h4>First Name: <input type="text" ng-model='newUser.firstName'></h4>
+            <h4>Last Name: <input type="text" ng-model='newUser.lastName'></h4>
+            <h4>Favorite Language: <input type="text" ng-model='newUser.favLanguage'></h4>
+            <h4>
+                <input type='submit' ng-click = 'createUser()' value='Create User'>
+
+            </h4>
+
+
+            <table ng-if="tableVisible">
+                
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Fav Language</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr ng-repeat="x in list track by $index">
+                        <td>{{ x.firstName }}</td>
+                        <td>{{ x.lastName }}</td>
+                        <td>{{ x.favLanguage }}</td>
+                        <td><button ng-click = 'printIndex($index)'>Delete User</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <span class="error">{{ error }}</span>
+          </fieldset>
+        </form>
+
+    </div>
+</body>
+</html>
