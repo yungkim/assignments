@@ -1,0 +1,17 @@
+h4 {
+    width:300px;
+}
+input, button {
+    float: right;
+}
+table {
+    margin-top: 3em;
+    border-collapse: collapse;
+}
+tbody tr:nth-child(odd) {
+    background-color: #ccc;
+    
+}
+td {
+    border: 1px solid black;
+}
