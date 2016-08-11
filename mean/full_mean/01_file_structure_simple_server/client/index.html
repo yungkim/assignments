@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <script src='angular/angular.js'></script>
+  <script src='angular-route/angular-route.js'></script>
+  <title>File Structure and Simple Server</title>
+  <script type="text/javascript" src="./factories/userFactory.js"></script>
+  <script type="text/javascript" src="./controllers/editController.js"></script>
+  <script type="text/javascript" src="./controllers/indexController.js"></script>
+  <script type="text/javascript" src="./controllers/newController.js"></script>
+  <script type="text/javascript" src="./controllers/showController.js"></script>
+  <script type="text/javascript" src="./config/routes.js"></script>
+</head>
+<body>
+  <h1>Welcome</h1>
+  <div ng-view>
+  </div>
+</body>
+</html>

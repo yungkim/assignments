@@ -1,0 +1,31 @@
+
+
+
+<fieldset>
+    <legend>Users</legend>
+
+
+    <table>          
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Show</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr ng-repeat="user in users | filter:filter track by $index">
+                <td>{{$index+1}}. {{ user.firstName }} {{ user.lastName }} </td>
+                <td><button ng-click = 'show($index)'>Show</button></td>
+                <td><button ng-click = 'update($index)'>Edit</button></td>
+                <td><button ng-click = 'delete($index)'>Delete</button></td>
+                <td> {{ user.birthday | date :  "y-dd-MM" }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3><input type="text" name="" placeholder="Filter: Birthday!" ng-model="filter" autofocus></h3>
+</fieldset>
+
+<h3><button onclick="window.location.href='#/new'">New Friend</button></h3>

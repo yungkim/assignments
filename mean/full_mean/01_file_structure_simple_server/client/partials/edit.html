@@ -1,0 +1,9 @@
+<h3>{{eC.controlValue}} {{user.firstName}} {{user.lastName}}</h3>
+<form>
+  <p>First Name: <input type="text" ng-model = 'users.firstName' placeholder = '{{user.firstName}}' autofocus></p>
+  <p>Last Name: <input type="text" ng-model = 'users.lastName' placeholder = '{{user.lastName}}'></p>
+  <p>Birthday: <input type="date" ng-model = 'users.birthday' value = '{{ user.birthday | date :  "yyyy-MM-dd" }}'>
+  <input type="submit"  value="Update" ng-click = "eC.updateUser()"></p>
+</form>
+
+<a ng-href = "#/index"> Return to Index </a>

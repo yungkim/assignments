@@ -1,0 +1,11 @@
+<fieldset>
+    <legend>Add a New Friend</legend>
+    <form>
+      <p>First Name: <input type="text" ng-model = user.firstName autofocus></p>
+      <p>Last Name: <input type="text" ng-model = user.lastName></p>
+      <p>Birthday: <input type="date"  ng-model = user.birthday></p>
+      <input type="submit" value = 'Create' ng-click = "addUser()">
+    </form>
+    
+</fieldset>
+<h3><button onclick="window.location.href='#/'"> Return to Index </button></h3>

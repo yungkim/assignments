@@ -1,0 +1,8 @@
+<form>
+  <p>First Name: <input type="text" ng-model = 'users.firstName' placeholder = '{{user.firstName}}' autofocus readonly="readonly"></p>
+  <p>Last Name: <input type="text" ng-model = 'users.lastName' placeholder = '{{user.lastName}}' readonly="readonly"></p>
+  <p>Birthday: <input type="date" ng-model = 'users.birthday' value = '{{ user.birthday | date :  "yyyy-MM-dd" }}' readonly="readonly"></p>
+  <p>User Added: <input type="date" ng-model = 'users.createdAt' value = '{{ user.createdAt | date :  "yyyy-MM-dd" }}' readonly="readonly"></p>
+</form>
+
+<a ng-href = "#/index"> Return to Index </a>
