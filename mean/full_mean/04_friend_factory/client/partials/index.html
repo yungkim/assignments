@@ -1,0 +1,25 @@
+<fieldset>
+    <legend>Friends</legend>
+    <table>          
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Show</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="friend in friends.data | filter:filter track by $index">
+                <td>{{$index+1}}. {{ friend.firstName }} {{ friend.lastName }} </td>
+                <td><button ng-click = 'show(friend)'>Show</button></td>
+                <td><button ng-click = 'update(friend)'>Edit</button></td>
+                <td><button ng-click = 'delete(friend)'>Delete</button></td>
+                <td> {{ friend.birthday | date :  "yyyy-MM-dd" }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3><input type="text" name="" placeholder="Filter: Birthday!" ng-model="filter.birthday" autofocus></h3>
+</fieldset>
+
+<h3><button onclick="window.location.href='#/new'">New Friend</button></h3>

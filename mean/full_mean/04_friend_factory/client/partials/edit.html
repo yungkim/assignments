@@ -1,0 +1,11 @@
+<fieldset>
+    <legend>Edit a Friend</legend>
+    <form>
+      <p>First Name: <input type="text" ng-model='friend.firstName' value={{friend.firstName}}></p>
+      <p>Last Name: <input type="text" ng-model='friend.lastName' value={{friend.lastName}}></p>
+      <p>Birthday: <input type="date" ng-model='friend.birthday' value='{{ friend.birthday | date :  "yyyy-MM-dd" }}'></p>
+      <input type="submit"  value="Update" ng-click = "update()"></p>
+    </form>
+    
+</fieldset>
+<h3><button onclick="window.location.href='#/'"> Return to Index </button></h3>
