@@ -1,0 +1,9 @@
+<fieldset>
+    <legend>Show a Friend</legend>
+    <form>
+      <p>First Name: <input type="text" value={{friend.firstName}} readonly="readonly"></p>
+      <p>Last Name: <input type="text" value={{friend.lastName}} readonly="readonly"></p>
+      <p>Birthday: <input type="date"  value='{{ friend.birthday | date :  "yyyy-MM-dd" }}' readonly="readonly"></p>
+    </form>
+</fieldset>
+<h3><button onclick="window.location.href='#/'"> Return to Index </button></h3>
