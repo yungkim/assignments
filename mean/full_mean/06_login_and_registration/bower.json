@@ -1,0 +1,21 @@
+{
+  "name": "login_and_registration",
+  "description": "Create a login and registration that uses back-end validation, catches errors and returns them to an Angular factory. Have a login controller that can differentiate between a proper login and errors. If there are errors show the errors using angular (ng-show/ng-if/ng-hide might help), otherwise set the newly logged-in user or registered user to a variable in the factory that is retrieved by the controller.",
+  "main": "server.js",
+  "authors": [
+    "Yung Kim"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}

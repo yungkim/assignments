@@ -1,0 +1,28 @@
+<div ng-if='!session'>
+    <fieldset>
+        <legend>Login</legend>
+        <form>
+          <p><input type="text" placeholder="Email" ng-model='user.email' autofocus></p>
+          <p><input type="password" placeholder="Password" ng-model='user.password'></p>
+          <input type="submit" value = 'Login' ng-click = "login(user)" ng-if='!session'>
+        </form>
+    </fieldset>
+</div>
+
+<div ng-if='!session'>
+    <fieldset>
+        <legend>Register a New User</legend>
+        <form>
+          <p><input type="text" placeholder="First Name" ng-model='newUser.first_name'></p>
+          <p><input type="text" placeholder="Last Name" ng-model='newUser.last_name'></p>
+          <p><input type="text" placeholder="Email" ng-model='newUser.email'></p>
+          <p><input type="password" placeholder="Password" ng-model='newUser.password'></p>
+          <p><input type="password" placeholder="Confirm Password" ng-model='newUser.password_confirm'></p>
+          <p><input type="date" ng-model='newUser.birthday'> Birthday</p>
+          <input type="submit" value = 'Reset' onClick="history.go(0)">
+          <input type="submit" value = 'Register' ng-click = "create(newUser)">
+        </form>
+    </fieldset>
+</div>
+<h1 ng-bind="message" style="color:red"></h1>
+<button ng-if='session' ng-click = "logout()">Logout</button>
