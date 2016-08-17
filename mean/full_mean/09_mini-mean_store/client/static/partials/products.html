@@ -32,7 +32,7 @@
     <div class="col-sm-9" style="background-color:lavenderblush;display:inline-block">
      <div style="width:30%;max-height:30%;display:inline-block;border:1px solid black;text-align: center;" ng-repeat="product in products | filter:filter">
             <p>{{product.name}}</p>
-            <p><img src={{product.image}} title={{product.description}}></p>
+            <p><img ng-src={{product.image}} title={{product.description}}></p>
             <p>({{product.quantity}} left)</p>
         </div>
     </div>
