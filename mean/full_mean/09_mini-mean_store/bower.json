@@ -1,0 +1,22 @@
+{
+  "name": "mini-mean_store",
+  "description": "Create a REST API using Express and get this to pull/update/delete records from the database!",
+  "main": "server.js",
+  "authors": [
+    "Yung Kim"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}

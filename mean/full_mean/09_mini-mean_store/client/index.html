@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini-MEAN Store</title>
+</head>
+<body ng-app="app">
+  <span>&nbsp;</span>
+  <div class="container">
+    <h1 ng-show="user_id" ng-bind="user_id"></h1>
+    <div >
+      <a href="#/dashboard">Dashboard</a>
+      |
+      <a href="#/products">Products</a>
+      |
+      <a href="#/orders">Orders</a>
+      |
+      <a href="#/customers">Customers</a>
+      |
+      <a href="#/settings">Settings</a>
+    </div>
+
+    <h4>&nbsp;</h4>
+    <h2 style="color: #CEF0D4; font-family: 'Rouge Script', cursive; font-size: 50px; font-weight: normal; line-height: 48px; margin: 0 0 50px; text-align: center; text-shadow: 1px 1px 2px #082b34;">Mini-MEAN Store</h2>
+    <div class="container" ng-view></div>
+  </div>
+<h4>&nbsp;</h4>
+  <h4 style="text-align: center">json: <a href="/customers">customers</a> - 
+<a href="/products">products</a> - 
+<a href="/orders">orders</a></h4>
+<h4>&nbsp;</h4>
+</body>
+<script src="angular/angular.js"></script>
+<script src="angular-route/angular-route.js"></script>
+<!-- <script src="angular-messages/angular-messages.js"></script> -->
+<!-- <script src="angular-cookies/angular-cookies.js"></script> -->
+<!-- <script src="angular-jwt/dist/angular-jwt.js"></script> -->
+<!-- <script src="lodash/lodash.js"></script> -->
+<!-- <script src="chance/chance.js"></script> -->
+<!-- <script src="assets/main.js"></script> -->
+<script src="assets/app.js"></script>
+<script src="assets/factories/customersFactory.js"></script>
+<script src="assets/controllers/customersController.js"></script>
+<script src="assets/factories/productsFactory.js"></script>
+<script src="assets/controllers/productsController.js"></script>
+<script src="assets/factories/ordersFactory.js"></script>
+<script src="assets/controllers/ordersController.js"></script>
+<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+</html>

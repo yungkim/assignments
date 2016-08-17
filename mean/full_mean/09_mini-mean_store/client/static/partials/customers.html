@@ -1,0 +1,41 @@
+
+<div class="panel panel-default" ng-if="!error">
+  <div class="panel-body">Add a new customer</div>
+</div>
+<div class="alert alert-danger" role="alert" ng-if="error">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  Name already exists, or empty!
+</div>
+<h4>&nbsp;</h4>
+
+<form class="form-inline">
+  <div class="form-group">
+    <label for="exampleInputName2">Customer Name: </label>
+    <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe" ng-model="customer.name">
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click = "create(customer)">Add</button>
+
+  <input type="text" class="form-control pull-right" placeholder="Search name..." ng-model="filter.name" autofocus>
+
+</form>
+
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Customer Name</th>
+      <th>Created Date</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="customer in customers | filter:filter">
+      <th scope="row">{{$index+1}}</th>
+      <td>{{customer.name}}</td>
+      <td>{{customer.createdAt | date :  "MMMM d yyyy"}}</td>
+      <td><button ng-click = "delete(customer)">Remove</button></td>
+    </tr>
+  </tbody>
+</table>
+

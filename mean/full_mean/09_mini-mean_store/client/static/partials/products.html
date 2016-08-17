@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <h1>Products</h1>
+  <p>New deals. Every day. Shop our Deal of the Day, Lightning Deals and more daily deals and limited-time sales.</p>
+  <p>Showing {{products.length}} results</p>
+  <div class="row">
+    <div class="col-sm-3" style="background-color:lavender;">
+        <h6>&nbsp;</h6>
+
+        <input type="text" class="form-control input-sm" placeholder="Search Products" ng-model="filter.name">
+        <h6>&nbsp;</h6>
+        <p>Add a new product</p>
+
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="productName">Name: </label>
+            <input type="text" class="form-control input-sm" id="productName" placeholder="Nike Shoes" ng-model="newProduct.name">
+            <label for="productImage">Image: </label>
+            <input type="text" class="form-control input-sm" id="productImage" placeholder="URL" ng-model="newProduct.image">
+            <label for="productDescription">Description: </label>
+            <textarea class="form-control input-sm" rows="5" id="productDescription" ng-model="newProduct.description"></textarea>
+            <label for="productQuantity">Initial Quantity: </label>
+            <select class="selectpicker input-sm" ng-model="newProduct.quantity">
+              <option ng-repeat="n in repeater(100)" value={{$index+1}} >{{$index+1}}</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary" ng-click = "create(newProduct)">Create</button>
+            <h4>&nbsp;</h4>
+          </div>                
+        </form>
+    </div>
+
+    <div class="col-sm-9" style="background-color:lavenderblush;display:inline-block">
+     <div style="width:30%;max-height:30%;display:inline-block;border:1px solid black;text-align: center;" ng-repeat="product in products | filter:filter">
+            <p>{{product.name}}</p>
+            <p><img src={{product.image}} title={{product.description}}></p>
+            <p>({{product.quantity}} left)</p>
+        </div>
+    </div>
+  </div>
+</div>
