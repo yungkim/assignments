@@ -1,0 +1,19 @@
+<h1>&nbsp;</h1>
+<h1>&nbsp;</h1>
+
+<div class="jumbotron" style="background: url(static/images/Subtle-Zebra-3D-Seamless-Pattern.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+    <div class="container">
+          <h1>Hello!</h1>
+          <h3>Please enter your name to join and share your ideas</h3>
+        <form>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon3">User Name:</span>
+              <input type="text" class="form-control nameInputText" id="basic-url" aria-describedby="basic-addon3" autofocus ng-model="user.name" required ng-minlength='2'>
+              
+            </div>
+            <input type="submit" value="Enter" class="indexButton pull-right" ng-click="check(user)">
+            <span class="pull-left" style="color:red">{{message}}</span>
+          </form>
+    </div>
+
+</div>

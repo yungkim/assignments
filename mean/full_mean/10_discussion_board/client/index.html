@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discussion Board</title>
+</head>
+<body ng-app="app">
+  
+    <div ng-view></div>
+
+    <h4>&nbsp;</h4>
+    <h4 style="text-align: center">json: <a href="/users">users</a> - 
+    <a href="/topics">topics</a> - 
+    <a href="/answers">answers</a> - 
+    <a href="/comments">comments</a> - 
+    <a href="/session">session</a></h4>
+    <h4>&nbsp;</h4>
+
+</body>
+<script src="angular/angular.js"></script>
+<script src="angular-route/angular-route.js"></script>
+<!-- <script src="angular-messages/angular-messages.js"></script> -->
+<!-- <script src="angular-cookies/angular-cookies.js"></script> -->
+<!-- <script src="angular-jwt/dist/angular-jwt.js"></script> -->
+<script src="assets/app.js"></script>
+<script src="assets/factories/indexFactory.js"></script>
+<script src="assets/controllers/indexController.js"></script>
+<script src="assets/factories/dashboardFactory.js"></script>
+<script src="assets/controllers/dashboardController.js"></script>
+<script src="assets/controllers/topicsController.js"></script>
+<script src="assets/factories/topicsFactory.js"></script>
+<script src="assets/factories/answersFactory.js"></script>
+<script src="assets/factories/usersFactory.js"></script>
+<script src="assets/controllers/usersController.js"></script>
+<script src="assets/factories/commentsFactory.js"></script>
+<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="static/stylesheets/style.css">
+</html>

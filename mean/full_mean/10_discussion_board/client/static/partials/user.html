@@ -1,0 +1,16 @@
+<div class="container">
+    <nav class="navbar navbar-light bg-faded" style="background-color: #e3f2fd;">
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link" href="#/dashboard">Dashboard</a> |
+            <a class="nav-item nav-link" href="/#/" ng-click="logout()">Logout</a>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <h1>Username: {{user.data[0].name}}</h1>
+    <h2>Posted...</h2>
+    <h3>{{user.data[0]._topics.length}} Topic</h3>
+    <h3>{{user.data[0]._answers.length}} Answers</h3>
+    <h3>{{user.data[0]._comments.length}} Comment</h3>
+</div>

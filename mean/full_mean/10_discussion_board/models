@@ -1,0 +1,6 @@
+models/properties/relationships
+
+users/name/topics,comments,answers
+topics/title,description,category/users,answers
+answers/message,upvote,downvote/user,topic,comments
+comments/text/user,answer

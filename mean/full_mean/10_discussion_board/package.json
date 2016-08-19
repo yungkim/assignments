@@ -1,0 +1,18 @@
+{
+  "name": "discussion_board",
+  "version": "1.0.0",
+  "description": "This is our final MEAN project before the belt exam. Once you create the basic functionality described in the wire-frame below, try adding new features. Use git and GitHub to collaborate with your peers!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yung Kim",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "mongoose": "^4.5.9"
+  }
+}

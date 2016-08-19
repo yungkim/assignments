@@ -1,0 +1,22 @@
+{
+  "name": "discussion_board",
+  "description": "This is our final MEAN project before the belt exam. Once you create the basic functionality described in the wire-frame below, try adding new features. Use git and GitHub to collaborate with your peers!",
+  "main": "server.js",
+  "authors": [
+    "Yung Kim"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}

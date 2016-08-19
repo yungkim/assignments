@@ -1,0 +1,10 @@
+.indexButton {
+    background: url(../../static/images/button.png);
+    cursor: pointer;
+    width: 20%;
+    display: block;
+    border: none;
+}
+.nameInputText {
+    text-transform:capitalize;
+}

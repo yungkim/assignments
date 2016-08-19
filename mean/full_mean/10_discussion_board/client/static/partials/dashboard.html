@@ -1,0 +1,81 @@
+<div class="container">
+    <nav class="navbar navbar-light bg-faded" style="background-color: #e3f2fd;">
+        <div class="nav navbar-nav">
+            <span class="nav-item nav-link">Dashboard</span> |
+            <a class="nav-item nav-link" href="/#/" ng-click="logout()">Logout</a>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+
+    <h1>Welcome, {{session.user.name}}!</h1>
+
+    <form class="form-inline">
+      <input type="text" class="form-control pull-right" placeholder="Search name..." ng-model="filter" autofocus>
+    </form>
+
+    <table class="table">
+      <thead class="thead-inverse">
+        <tr>
+          <th>#</th>
+          <th>Category</th>
+          <th>Topic</th>
+          <th>User Name</th>
+          <th>Answers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="topic in topics | filter:filter">
+          <th scope="row">{{$index+1}}</th>
+          <td>{{topic.category}}</td>
+          <td><a href="#/topic/{{topic._id}}">{{topic.topic}}</a></td>
+          <td><a href="#/user/{{topic._user._id}}">{{topic._user.name}}</a></td>
+          <td>{{topic._answers.length}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="panel panel-default" ng-if="!error">
+      <div class="panel-body">Add a new topic</div>
+    </div>
+    <div class="alert alert-danger" role="alert" ng-if="error">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      Name already exists, or empty!
+    </div>
+
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="topic">Topic:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="topic" placeholder="Enter topic (min. 5 char)" ng-model="newTopic.topic" required ng-minlength='5'>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="description">Description:</label>
+        <div class="col-sm-10"> 
+          <input type="text" class="form-control" id="description" placeholder="Enter description (min. 5 char)" ng-model="newTopic.description" required ng-minlength='5'>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="category">Category:</label>
+        <div class="col-sm-10"> 
+          <select class="form-control" id="category" ng-model="newTopic.category" required>
+            <option value="" disabled selected>Select category</option>
+            <option>Ruby on Rails</option>
+            <option>MySQL</option>
+            <option>HTML</option>
+            <option>UX</option>
+            <option>Web Developtment</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"> 
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary pull-right" ng-click="createTopic(newTopic)">Submit</button>
+        </div>
+      </div>
+    </form>
+
+</div>
